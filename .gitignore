@@ -1,6 +1,4 @@
 /**/node_modules
 .DS_Store
 ./**/package-lock.json
-/frontend/.next/*
-/frontend/.next/server/*
-/frontend/.next/static/*
+/frontend/.next/
