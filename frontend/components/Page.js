@@ -1,8 +1,8 @@
 import React, { Component } from 'react';
+import { ThemeProvider } from 'styled-components';
+import { theme, StyledPage, Inner } from './styles/PageStyles';
 import Header from './Header';
 import Meta from './Meta';
-import { ThemeProvider, injectGlobal } from 'styled-components';
-import { theme, StyledPage, Inner } from './styles/PageStyles';
 
 class Page extends Component {
   render() {
