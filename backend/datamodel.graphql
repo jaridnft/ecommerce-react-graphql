@@ -1,3 +1,5 @@
+# Prisma datamodel that generates prisma.graphql
+
 type User {
   id: ID! @unique
   name: String!
@@ -12,7 +14,7 @@ type Item {
   largeImage: String
   price: Int!
   # Prisma only 'DateTime'
-  createAt: DateTime!
+  createdAt: DateTime!
   updatedAt: DateTime!
   # user: User!
 }
