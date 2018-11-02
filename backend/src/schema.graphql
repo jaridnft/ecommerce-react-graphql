@@ -1,0 +1,16 @@
+# the following comment is a Prisma import for graphQL
+# import * from './generated/prisma.graphql'
+
+type Mutation {
+  createItem(
+    title: String
+    description: String
+    Price: Int
+    image: String
+    largeImage: String
+  ): Item!
+}
+
+type Query {
+  items: [Item]!
+}
