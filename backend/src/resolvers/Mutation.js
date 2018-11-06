@@ -3,6 +3,7 @@ const jwt = require('jsonwebtoken');
 const { randomBytes } = require('crypto');
 // takes callback functions and turns them into async based functions
 const { promisify } = require('util');
+const { transport, makeANiceEmail } = require('../mail');
 
 const maxAge = 1000 * 60 * 60 * 24 * 365; // one year in milliseconds
 
@@ -110,6 +111,17 @@ const Mutations = {
       data: { resetToken, resetTokenExpiry }
     });
     // email them that reset token
+    const mailRes = await transport.sendMail({
+      from: 'jaridwarren@gmail.com',
+      to: user.email,
+      subject: 'Your Password reset Token',
+      html: makeANiceEmail(`Your Password Reset Token is here!
+			\n\n 
+			<a href="${
+        process.env.FRONTEND_URLs
+      }/reset?resetToken=${resetToken}">Click Here to Reset</a>`)
+    });
+
     return { message: 'Thanks!' };
   },
   async resetPassword(parent, args, ctx, info) {
