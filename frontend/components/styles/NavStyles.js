@@ -17,6 +17,8 @@ const NavStyles = styled.ul`
     font-size: 1em;
     background: none;
     border: 0;
+    font-weight: 800;
+    color: ${props => props.theme.black};
     cursor: pointer;
     @media (max-width: 700px) {
       font-size: 10px;

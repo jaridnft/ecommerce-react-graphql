@@ -2,6 +2,12 @@
 # the following comment is a Prisma import for graphQL
 # import * from './generated/prisma.graphql'
 
+# SuccessMessage is a custom type, and won't appear on the backend of Prisma/db
+
+type SuccessMessage {
+  message: String
+}
+
 type Mutation {
   createItem(
     title: String
@@ -14,6 +20,7 @@ type Mutation {
   deleteItem(id: ID!): Item
   signup(email: String!, password: String!, name: String!): User!
   signin(email: String!, password: String!): User!
+  signout: SuccessMessage
 }
 
 type Query {
