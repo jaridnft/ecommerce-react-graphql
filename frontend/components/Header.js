@@ -1,8 +1,9 @@
 import Link from 'next/link';
-import Nav from './Nav';
 import Router from 'next/router';
 import NProgress from 'nprogress';
+import Nav from './Nav';
 import { StyledHeader, Logo } from './styles/HeaderStyles';
+import Cart from './Cart';
 
 // nprogress is the loader bar at the top of the pane
 // for styling see `../../static/nprogress.css`
@@ -31,7 +32,7 @@ const Header = () => (
     <div className="sub-bar">
       <p>Search</p>
     </div>
-    <div>Cart</div>
+    <Cart />
   </StyledHeader>
 );
 
