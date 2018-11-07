@@ -11,14 +11,18 @@ const Table = styled.table`
   th {
     border-bottom: 1px solid ${props => props.theme.offWhite};
     border-right: 1px solid ${props => props.theme.offWhite};
-    padding: 10px 5px;
     position: relative;
     &:last-child {
+      padding: 5px;
       border-right: none;
       width: 150px;
       button {
         width: 100%;
       }
+    }
+    label {
+      padding: 10px 5px;
+      display: block;
     }
   }
   tr {
