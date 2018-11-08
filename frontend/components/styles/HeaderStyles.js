@@ -20,6 +20,11 @@ const Logo = styled.h1`
 `;
 
 const StyledHeader = styled.header`
+  position: fixed;
+  top: 0;
+  background-color: white;
+  z-index: 1;
+  width: 100%;
   .bar {
     border-bottom: 10px solid ${props => props.theme.black};
     display: grid;
