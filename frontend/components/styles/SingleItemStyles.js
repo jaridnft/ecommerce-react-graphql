@@ -16,6 +16,34 @@ const SingleItemStyles = styled.div`
   .details {
     margin: 3rem;
     font-size: 2rem;
+    text-align: center;
+  }
+  .buttonList {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    border-top: 1px solid ${props => props.theme.lightgrey};
+    background: ${props => props.theme.lightgrey};
+    button {
+      font-weight: 600;
+    }
+    a {
+      width: 100%;
+      text-align: center;
+    }
+    & > * {
+      background: white;
+      border: 0;
+      font-size: 1rem;
+      padding: 1rem;
+    }
+    @media (min-width: 700px) {
+      flex-direction: row;
+      a,
+      button {
+        width: 33%;
+      }
+    }
   }
 `;
 

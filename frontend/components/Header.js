@@ -4,6 +4,7 @@ import NProgress from 'nprogress';
 import Nav from './Nav';
 import { StyledHeader, Logo } from './styles/HeaderStyles';
 import Cart from './Cart';
+import Search from './Search';
 
 // nprogress is the loader bar at the top of the pane
 // for styling see `../../static/nprogress.css`
@@ -30,7 +31,7 @@ const Header = () => (
       <Nav />
     </div>
     <div className="sub-bar">
-      <p>Search</p>
+      <Search />
     </div>
     <Cart />
   </StyledHeader>
