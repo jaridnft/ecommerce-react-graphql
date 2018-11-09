@@ -12,3 +12,5 @@
 - add address to credit card checkout
 - add tax calculation to checkout
 - close cart when order is complete
+- add account page
+- register service worker + work on PWA checklist
