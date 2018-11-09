@@ -29,13 +29,17 @@ function totalItems(cart) {
 
 class TakeMyMoney extends Component {
   onToken = async (res, createOrder) => {
+    NProgress.start();
     // manually call mutation once we have the stripe token
     const order = await createOrder({
       variables: {
         token: res.id
       }
     }).catch(error => alert(error.message));
-    console.log(order);
+    Router.push({
+      pathname: '/order',
+      query: { id: order.data.createOrder.id }
+    });
   };
 
   render() {

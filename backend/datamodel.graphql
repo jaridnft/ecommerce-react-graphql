@@ -56,4 +56,6 @@ type Order {
   total: Int!
   user: User!
   charge: String!
+  updatedAt: DateTime!
+  createdAt: DateTime!
 }

@@ -7,7 +7,6 @@ import Error from './ErrorMessage';
 import SingleItemStyles from './styles/SingleItemStyles';
 import DeleteItem from './DeleteItem';
 import AddToCart from './AddToCart';
-import User from './User';
 
 const SINGLE_ITEM_QUERY = gql`
   query SINGLE_ITEM_QUERY($id: ID!) {
@@ -23,46 +22,39 @@ const SINGLE_ITEM_QUERY = gql`
 class SingleItem extends Component {
   render() {
     return (
-      <User>
-        {({ data: { me } }) => {
-          if (!me) return null;
+      <Query query={SINGLE_ITEM_QUERY} variables={{ id: this.props.id }}>
+        {({ error, loading, data }) => {
+          if (error) return <Error error={error} />;
+          if (loading) return <p>Loading...</p>;
+          if (!data.item) return <p>No item found for {this.props.id}</p>;
+          const item = data.item;
           return (
-            <Query query={SINGLE_ITEM_QUERY} variables={{ id: this.props.id }}>
-              {({ error, loading, data }) => {
-                if (error) return <Error error={error} />;
-                if (loading) return <p>Loading...</p>;
-                if (!data.item) return <p>No item found for {this.props.id}</p>;
-                const item = data.item;
-                return (
-                  <SingleItemStyles>
-                    {/* Head gets inserted into HTML head by nextjs */}
-                    <Head>
-                      <title>Sick Fits | {item.title}</title>
-                    </Head>
-                    <img src={item.largeImage} alt={item.title} />
-                    <div className="details">
-                      <h2>Viewing {item.title}</h2>
-                      <p>{item.description}</p>
-                      <div className="buttonList">
-                        <Link
-                          href={{
-                            pathname: 'update',
-                            query: { id: item.id }
-                          }}
-                        >
-                          <a>Edit ✏️</a>
-                        </Link>
-                        <AddToCart id={item.id} />
-                        <DeleteItem id={item.id}>Delete This Item</DeleteItem>
-                      </div>
-                    </div>
-                  </SingleItemStyles>
-                );
-              }}
-            </Query>
+            <SingleItemStyles>
+              {/* Head gets inserted into HTML head by nextjs */}
+              <Head>
+                <title>Sick Fits | {item.title}</title>
+              </Head>
+              <img src={item.largeImage} alt={item.title} />
+              <div className="details">
+                <h2>Viewing {item.title}</h2>
+                <p>{item.description}</p>
+                <div className="buttonList">
+                  <Link
+                    href={{
+                      pathname: 'update',
+                      query: { id: item.id }
+                    }}
+                  >
+                    <a>Edit ✏️</a>
+                  </Link>
+                  <AddToCart id={item.id} />
+                  <DeleteItem id={item.id}>Delete This Item</DeleteItem>
+                </div>
+              </div>
+            </SingleItemStyles>
           );
         }}
-      </User>
+      </Query>
     );
   }
 }
