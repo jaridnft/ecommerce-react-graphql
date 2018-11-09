@@ -5,6 +5,7 @@ const { randomBytes } = require('crypto');
 const { promisify } = require('util');
 const { transport, makeANiceEmail } = require('../mail');
 const { hasPermission } = require('../utils');
+const stripe = require('../stripe');
 
 const maxAge = 1000 * 60 * 60 * 24 * 365; // one year in milliseconds
 
@@ -271,6 +272,59 @@ const Mutations = {
     }
     // delete that cart item
     return ctx.db.mutation.deleteCartItem({ where: { id: args.id } }, info);
+  },
+  async createOrder(parent, args, ctx, info) {
+    // query the current user and make sure they are signed in
+    const { userId } = ctx.request;
+    if (!userId)
+      throw new Error('You must be signed in to complete this order.');
+    const user = await ctx.db.query.user(
+      { where: { id: userId } },
+      `{id name email cart { id quantity item { title price id description image largeImage}}}`
+    );
+    // re-calculate the total/price (so you don't rely on client side)
+    // '0' is the starting amount
+    const amount = user.cart.reduce(
+      (tally, cartItem) => tally + cartItem.item.price * cartItem.quantity,
+      0
+    );
+    console.log(`Going to charge for a total of ${amount}`);
+    // create the stripe charge
+    const charge = await stripe.charges.create({
+      amount,
+      currency: 'USD',
+      source: args.token
+    });
+    // convert the cartItems to orderItems
+    const orderItems = user.cart.map(cartItem => {
+      const orderItem = {
+        ...cartItem.item,
+        quantity: cartItem.quanity,
+        user: { connect: { id: userId } }
+      };
+      // we don't want to copy in the id, because that is generated
+      delete orderItem.id;
+      return orderItem;
+    });
+    // create the order
+    const order = await ctx.db.mutation.createOrder({
+      data: {
+        total: charge.amount,
+        charge: charge.id,
+        items: { create: orderItems },
+        user: { connect: { id: userId } }
+      }
+    });
+    // clear the user's cart and delete cartItems
+    const cartItemIds = user.cart.map(cartItem => cartItem.id);
+    // deletes the cart item if the id is still inside the object
+    await ctx.db.mutation.deleteManyCartItems({
+      where: {
+        id_in: cartItemIds
+      }
+    });
+    // return the order to the client
+    return order;
   }
 };
 

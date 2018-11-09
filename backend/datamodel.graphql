@@ -36,3 +36,24 @@ type CartItem {
   item: Item # relationship to Item
   user: User! # relationship to User
 }
+
+# OrderItem can't have a relationship to Item, as if the item
+# changes in the future, we don't want that information reflected in the OrderItem
+type OrderItem {
+  id: ID! @unique
+  title: String!
+  description: String!
+  image: String!
+  largeImage: String!
+  price: Int!
+  quantity: Int! @default(value: 1)
+  user: User
+}
+
+type Order {
+  id: ID! @unique
+  items: [OrderItem!]!
+  total: Int!
+  user: User!
+  charge: String!
+}
