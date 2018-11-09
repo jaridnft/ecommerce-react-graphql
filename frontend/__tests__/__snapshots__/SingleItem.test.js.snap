@@ -1,0 +1,36 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`<SingleItem /> Errors with a not found item 1`] = `
+<p
+  data-test="graphql-error"
+>
+  <strong>
+    Shoot!
+  </strong>
+  Items Not Found!
+</p>
+`;
+
+exports[`<SingleItem /> renders with proper data 1`] = `null`;
+
+exports[`<SingleItem /> renders with proper data 2`] = `null`;
+
+exports[`<SingleItem /> renders with proper data 3`] = `
+<p
+  data-test="graphql-error"
+>
+  <strong>
+    Shoot!
+  </strong>
+  Network error: No more mocked responses for the query: query SINGLE_ITEM_QUERY($id: ID!) {
+  item(where: {id: $id}) {
+    id
+    title
+    description
+    largeImage
+    __typename
+  }
+}
+, variables: {"id":123}
+</p>
+`;
