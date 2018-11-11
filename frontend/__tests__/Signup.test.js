@@ -83,6 +83,7 @@ describe('<Signup />', () => {
 
     await wait();
     // query the user out of the apollo client
+    // in ../components/Signup.js, the refetchQueries will look for the current user
     const user = await apolloClient.query({ query: CURRENT_USER_QUERY });
     expect(user.data.me).toMatchObject(me);
   });
