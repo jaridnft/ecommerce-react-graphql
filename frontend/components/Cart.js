@@ -64,7 +64,7 @@ const Cart = () => (
               ''
             ) : (
               <TakeMyMoney>
-                <SickButton>Checkout</SickButton>
+                <SickButton onClick={toggleCart}>Checkout</SickButton>
               </TakeMyMoney>
             )}
           </footer>

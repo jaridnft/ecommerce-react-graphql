@@ -24,7 +24,7 @@ const Header = () => (
     {/* nprogress bar */}
     <div className="bar">
       <Logo>
-        <Link href="">
+        <Link href="/">
           <a>Sick Fits</a>
         </Link>
       </Logo>

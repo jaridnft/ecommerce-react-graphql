@@ -11,7 +11,7 @@ const fakeItem = () => ({
   image: 'dog-small.jpg',
   title: 'dogs are best',
   description: 'dogs',
-  largeImage: 'dog.jpg',
+  largeImage: 'dog.jpg'
 });
 
 const fakeUser = () => ({
@@ -20,8 +20,7 @@ const fakeUser = () => ({
   name: casual.name,
   email: casual.email,
   permissions: ['ADMIN'],
-  orders: [],
-  cart: [],
+  cart: []
 });
 
 const fakeOrderItem = () => ({
@@ -31,7 +30,7 @@ const fakeOrderItem = () => ({
   title: casual.words(),
   price: 4234,
   quantity: 1,
-  description: casual.words(),
+  description: casual.words()
 });
 
 const fakeOrder = () => ({
@@ -41,7 +40,7 @@ const fakeOrder = () => ({
   total: 40000,
   items: [fakeOrderItem(), fakeOrderItem()],
   createdAt: '2018-04 - 06T19: 24: 16.000Z',
-  user: fakeUser(),
+  user: fakeUser()
 });
 
 const fakeCartItem = overrides => ({
@@ -50,7 +49,7 @@ const fakeCartItem = overrides => ({
   quantity: 3,
   item: fakeItem(),
   user: fakeUser(),
-  ...overrides,
+  ...overrides
 });
 
 // Fake LocalStorage
@@ -82,5 +81,5 @@ export {
   fakeUser,
   fakeCartItem,
   fakeOrder,
-  fakeOrderItem,
+  fakeOrderItem
 };

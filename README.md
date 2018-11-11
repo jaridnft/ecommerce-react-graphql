@@ -11,6 +11,6 @@
 - add more verbose error checking for credit cards (see Stripe's list of credit card numbers that can be used for testing to throw certain errors)
 - add address to credit card checkout
 - add tax calculation to checkout
-- close cart when order is complete
 - add account page
 - register service worker + work on PWA checklist
+- allow user ability to change quantity in cart

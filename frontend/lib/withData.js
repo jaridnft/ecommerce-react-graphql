@@ -23,7 +23,7 @@ function createClient({ headers }) {
             const { cartOpen } = cache.readQuery({
               query: LOCAL_STATE_QUERY
             });
-            // write teh cart state to the opposite
+            // write the cart state to the opposite
             const data = {
               data: { cartOpen: !cartOpen }
             };

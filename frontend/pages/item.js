@@ -1,5 +1,5 @@
 import SingleItem from '../components/SingleItem';
-import PleaseSignIn from './PleaseSignIn';
+import PleaseSignIn from '../components/PleaseSignIn';
 
 const Item = props => (
   <div>
