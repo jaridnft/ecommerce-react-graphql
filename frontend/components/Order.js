@@ -52,10 +52,6 @@ class Order extends Component {
                 <span>{this.props.id}</span>
               </p>
               <p>
-                <span>Charge:</span>
-                <span>{order.charge}</span>
-              </p>
-              <p>
                 <span>Date:</span>
                 <span>{format(order.createdAt, 'MMMM d, yyyy h:mm a')}</span>
               </p>
