@@ -1,5 +1,4 @@
-#endpoint: ${env:PRISMA_ENDPOINT}
-endpoint: https://ecommerce-prisma-db-598285af86.herokuapp.com
+endpoint: ${env:PRISMA_ENDPOINT}
 datamodel: datamodel.graphql
 # uncommment for production
 secret: ${env:PRISMA_SECRET}
