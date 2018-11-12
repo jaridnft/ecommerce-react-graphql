@@ -1,5 +1,5 @@
-#endpoint: ${env:PRISMA_ENDPOINT}
-endpoint: https://ecomm-prisma-server-4c36fe9692.herokuapp.com/ecomm-react-prod/prod
+endpoint: ${env:PRISMA_ENDPOINT}
+# endpoint: https://ecomm-prisma-server-4c36fe9692.herokuapp.com/ecomm-react-prod/prod
 datamodel: datamodel.graphql
 # uncommment for production
 secret: ${env:PRISMA_SECRET}
