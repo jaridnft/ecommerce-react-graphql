@@ -4,6 +4,8 @@
 
 A sample e-commerce store, 'Sick Fits', that allows users to sign-up, add/edit/remove items to the store, and even check-out items with a (test-mode) credit card purchase. 
 
+<img height="400" src="./readme-images/intro.gif">
+
 ## __Motivation__
 
 Sickfits is an opportunity to learn more about React, GraphQL and a host of other modern technologies (listed below) to stay on the cutting edge of web development. In addition, I've wanted to build a fully-functioning E-commerce website with payment processing and an email server to improve my back-end skills.
@@ -35,13 +37,21 @@ Sickfits is an opportunity to learn more about React, GraphQL and a host of othe
 
 ### &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Add Item to Store
 
+<img height="400" src="./readme-images/item-upload.gif">
+
 ### &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Edit Existing Items
 
-### &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Add to Cart & Checkout
+<img height="400" src="./readme-images/edit-item.gif">
 
-### &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Password Reset
+### &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Credit Card Checkout
 
-### &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;...and more
+<img height="400" src="./readme-images/checkout.gif">
+
+### &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Sitewide Search
+
+<img height="400" src="./readme-images/search.gif">
+
+### &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;...Password Reset, Permissions Panel, Order History, and more
 
 ## __Code Sample__
 
