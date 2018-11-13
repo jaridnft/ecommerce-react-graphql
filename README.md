@@ -25,7 +25,7 @@ Sickfits is an opportunity to learn more about React, GraphQL and a host of othe
 - **Express/node.js**: Server framework underneath Yoga (which includes an email server)
 - **Prisma**: CRUD APIs that can integrate with many databases (including postreSQL, mongoDB or mySQL), as well as schema definition
 
-### Testing
+### &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Testing
 
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<img height="80" src="./readme-images/jest-enzyme.jpeg">
 
